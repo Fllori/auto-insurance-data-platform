@@ -45,6 +45,46 @@ The source data is not included in this GitHub repository.
 
 ## Data Architecture
 
+
+```mermaid
+flowchart TD
+    A["Source CSV Files<br/>freMTPL2freq.csv + freMTPL2sev.csv"]
+    B["Unity Catalog Volume<br/>source_files"]
+    C["Bronze Layer<br/>Raw Delta Tables"]
+    D["Silver Layer<br/>Cleaned Policies and Claims"]
+    Q["Quarantine<br/>Orphan Claims"]
+    E["Gold Layer<br/>7 Risk Analytics Tables"]
+    F["Databricks AI/BI Dashboard<br/>5 Visualizations"]
+    J["Databricks Jobs<br/>5 Sequential Tasks"]
+    V["Data Quality<br/>33 Automated Checks"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> Q
+    D --> E
+    E --> F
+    E --> V
+
+    J -.-> C
+    J -.-> D
+    J -.-> E
+    J -.-> V
+
+    classDef source fill:#e8f0fe,stroke:#4a78c2,color:#172b4d
+    classDef bronze fill:#f7e0cb,stroke:#b77935,color:#553013
+    classDef silver fill:#e5e7eb,stroke:#6b7280,color:#1f2937
+    classDef gold fill:#fff0bc,stroke:#c49a21,color:#594400
+    classDef quality fill:#dcfce7,stroke:#439765,color:#14532d
+
+    class A,B source
+    class C bronze
+    class D,Q silver
+    class E,F gold
+    class J,V quality
+```
+
+
 The platform follows the **Medallion Architecture**, separating data processing into three layers.
 
 ### Bronze — Raw Ingestion
