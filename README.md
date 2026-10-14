@@ -190,6 +190,8 @@ The Databricks AI/BI dashboard **Auto Insurance Claims & Risk Analytics** provid
 4. Average Claim Severity by Driver Age
 5. Observed Claims Cost per Exposure
 
+![Auto Insurance Claims & Risk Analytics Dashboard](risk_dashboard.png)
+
 ### Selected Analytical Findings
 
 - Drivers aged 18–24 have a reported claim frequency of approximately **18.93%**.
