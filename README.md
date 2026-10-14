@@ -180,6 +180,12 @@ The workflow runs on Databricks serverless compute and has completed successfull
 
 The environment setup notebook is maintained separately.
 
+### Databricks Job Workflow
+
+The data pipeline is orchestrated using Databricks Jobs with five sequential tasks running on serverless compute.
+
+![Databricks Job Workflow](images/databricks_job_workflow.png)
+
 ## Analytics Dashboard
 
 The Databricks AI/BI dashboard **Auto Insurance Claims & Risk Analytics** provides five visualizations:
